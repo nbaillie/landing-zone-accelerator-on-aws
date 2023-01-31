@@ -37,6 +37,7 @@ const stack = new PipelineStack(app, 'PipelineStack', {
   auditAccountEmail: 'accelerator-audit@example.com',
   controlTowerEnabled: 'Yes',
   partition: 'aws',
+  continuousDelivery: 'No'
 });
 
 describe('PipelineStack', () => {

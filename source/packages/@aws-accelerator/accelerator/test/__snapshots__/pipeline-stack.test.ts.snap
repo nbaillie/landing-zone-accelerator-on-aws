@@ -1894,6 +1894,11 @@ Object {
               "Type": "PLAINTEXT",
               "Value": "aws-accelerator",
             },
+            Object {
+              "Name": "CONTINUOUS_DELIVERY",
+              "Type": "PLAINTEXT",
+              "Value": "No",
+            },
           ],
           "Image": "aws/codebuild/standard:5.0",
           "ImagePullCredentialsType": "CODEBUILD",

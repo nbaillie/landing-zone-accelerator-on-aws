@@ -214,7 +214,7 @@ async function main() {
       const sourceRepositoryOwner = process.env['ACCELERATOR_REPOSITORY_OWNER'] ?? 'awslabs';
       const sourceRepositoryName = process.env['ACCELERATOR_REPOSITORY_NAME'] ?? 'landing-zone-accelerator-on-aws';
       const sourceBranchName = process.env['ACCELERATOR_REPOSITORY_BRANCH_NAME'];
-      const enableApprovalStage = process.env['ACCELERATOR_ENABLE_APPROVAL_STAGE']
+      const enableApprovalStage = process.env['ACCELERATOR_ENABLE_APPROVAL_STAGE'] === 'Yes'
         ? process.env['ACCELERATOR_ENABLE_APPROVAL_STAGE'] === 'Yes'
         : true;
 
@@ -238,6 +238,7 @@ async function main() {
           sourceRepositoryName,
           sourceBranchName,
           enableApprovalStage,
+          continuousDelivery: process.env['CONTINUOUS_DELIVERY']!,
           terminationProtection: true,
           qualifier: process.env['ACCELERATOR_QUALIFIER'],
           managementAccountId: process.env['MANAGEMENT_ACCOUNT_ID']!,
@@ -247,7 +248,7 @@ async function main() {
           auditAccountEmail: process.env['AUDIT_ACCOUNT_EMAIL']!,
           controlTowerEnabled: process.env['CONTROL_TOWER_ENABLED']!,
           approvalStageNotifyEmailList: process.env['APPROVAL_STAGE_NOTIFY_EMAIL_LIST'],
-          partition,
+          partition
         },
       );
 

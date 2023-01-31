@@ -42,6 +42,8 @@ export interface AcceleratorPipelineProps {
   readonly logArchiveAccountEmail: string;
   readonly auditAccountEmail: string;
   readonly controlTowerEnabled: string;
+  readonly continuousDelivery: string;
+
   /**
    * List of email addresses to be notified when pipeline is waiting for manual approval stage.
    * If pipeline do not have approval stage enabled, this value will have no impact.
@@ -304,6 +306,10 @@ export class AcceleratorPipeline extends Construct {
           ACCELERATOR_QUALIFIER: {
             type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
             value: this.props.qualifier ? this.props.qualifier : 'aws-accelerator',
+          },
+          CONTINUOUS_DELIVERY: {
+            type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
+            value: this.props.continuousDelivery,
           },
           ...pipelineAccountEnvVariables,
         },
