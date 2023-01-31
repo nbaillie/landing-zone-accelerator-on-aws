@@ -85,6 +85,7 @@ Object {
           "Parameters": Array [
             "EnableApprovalStage",
             "ApprovalStageNotifyEmailList",
+            "ContinuousDelivery",
           ],
         },
         Object {
@@ -112,6 +113,9 @@ Object {
         },
         "AuditAccountEmail": Object {
           "default": "Audit Account Email",
+        },
+        "ContinuousDelivery": Object {
+          "default": "Continuous Delivery Only",
         },
         "ControlTowerEnabled": Object {
           "default": "Control Tower Environment",
@@ -149,6 +153,15 @@ Object {
       "AllowedPattern": "[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+",
       "ConstraintDescription": "Must be a valid email address matching \\"[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+\\"",
       "Description": "The security audit account (also referred to as the audit account)",
+      "Type": "String",
+    },
+    "ContinuousDelivery": Object {
+      "AllowedValues": Array [
+        "Yes",
+        "No",
+      ],
+      "Default": "No",
+      "Description": "Select yes will expect that the configuration is built externally supplied pre-synthesized",
       "Type": "String",
     },
     "ControlTowerEnabled": Object {
@@ -1437,6 +1450,13 @@ Object {
               "Type": "PLAINTEXT",
               "Value": Object {
                 "Ref": "EnableApprovalStage",
+              },
+            },
+            Object {
+              "Name": "CONTINUOUS_DELIVERY",
+              "Type": "PLAINTEXT",
+              "Value": Object {
+                "Ref": "ContinuousDelivery",
               },
             },
             Object {
@@ -2602,6 +2622,7 @@ Object {
           "Parameters": Array [
             "EnableApprovalStage",
             "ApprovalStageNotifyEmailList",
+            "ContinuousDelivery",
           ],
         },
         Object {
@@ -2629,6 +2650,9 @@ Object {
         },
         "AuditAccountEmail": Object {
           "default": "Audit Account Email",
+        },
+        "ContinuousDelivery": Object {
+          "default": "Continuous Delivery Only",
         },
         "ControlTowerEnabled": Object {
           "default": "Control Tower Environment",
@@ -2666,6 +2690,15 @@ Object {
       "AllowedPattern": "[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+",
       "ConstraintDescription": "Must be a valid email address matching \\"[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+\\"",
       "Description": "The security audit account (also referred to as the audit account)",
+      "Type": "String",
+    },
+    "ContinuousDelivery": Object {
+      "AllowedValues": Array [
+        "Yes",
+        "No",
+      ],
+      "Default": "No",
+      "Description": "Select yes will expect that the configuration is built externally supplied pre-synthesized",
       "Type": "String",
     },
     "ControlTowerEnabled": Object {
@@ -3957,6 +3990,13 @@ Object {
               },
             },
             Object {
+              "Name": "CONTINUOUS_DELIVERY",
+              "Type": "PLAINTEXT",
+              "Value": Object {
+                "Ref": "ContinuousDelivery",
+              },
+            },
+            Object {
               "Name": "APPROVAL_STAGE_NOTIFY_EMAIL_LIST",
               "Type": "PLAINTEXT",
               "Value": Object {
@@ -5109,6 +5149,7 @@ Object {
           "Parameters": Array [
             "EnableApprovalStage",
             "ApprovalStageNotifyEmailList",
+            "ContinuousDelivery",
           ],
         },
         Object {
@@ -5149,6 +5190,9 @@ Object {
         },
         "AuditAccountEmail": Object {
           "default": "Audit Account Email",
+        },
+        "ContinuousDelivery": Object {
+          "default": "Continuous Delivery Only",
         },
         "ControlTowerEnabled": Object {
           "default": "Control Tower Environment",
@@ -5197,6 +5241,15 @@ Object {
       "AllowedPattern": "[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+",
       "ConstraintDescription": "Must be a valid email address matching \\"[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+\\"",
       "Description": "The security audit account (also referred to as the audit account)",
+      "Type": "String",
+    },
+    "ContinuousDelivery": Object {
+      "AllowedValues": Array [
+        "Yes",
+        "No",
+      ],
+      "Default": "No",
+      "Description": "Select yes will expect that the configuration is built externally supplied pre-synthesized",
       "Type": "String",
     },
     "ControlTowerEnabled": Object {
@@ -6557,6 +6610,13 @@ Object {
               "Type": "PLAINTEXT",
               "Value": Object {
                 "Ref": "EnableApprovalStage",
+              },
+            },
+            Object {
+              "Name": "CONTINUOUS_DELIVERY",
+              "Type": "PLAINTEXT",
+              "Value": Object {
+                "Ref": "ContinuousDelivery",
               },
             },
             Object {
@@ -7825,6 +7885,7 @@ Object {
           "Parameters": Array [
             "EnableApprovalStage",
             "ApprovalStageNotifyEmailList",
+            "ContinuousDelivery",
           ],
         },
         Object {
@@ -7865,6 +7926,9 @@ Object {
         },
         "AuditAccountEmail": Object {
           "default": "Audit Account Email",
+        },
+        "ContinuousDelivery": Object {
+          "default": "Continuous Delivery Only",
         },
         "ControlTowerEnabled": Object {
           "default": "Control Tower Environment",
@@ -7913,6 +7977,15 @@ Object {
       "AllowedPattern": "[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+",
       "ConstraintDescription": "Must be a valid email address matching \\"[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+\\"",
       "Description": "The security audit account (also referred to as the audit account)",
+      "Type": "String",
+    },
+    "ContinuousDelivery": Object {
+      "AllowedValues": Array [
+        "Yes",
+        "No",
+      ],
+      "Default": "No",
+      "Description": "Select yes will expect that the configuration is built externally supplied pre-synthesized",
       "Type": "String",
     },
     "ControlTowerEnabled": Object {
@@ -9273,6 +9346,13 @@ Object {
               "Type": "PLAINTEXT",
               "Value": Object {
                 "Ref": "EnableApprovalStage",
+              },
+            },
+            Object {
+              "Name": "CONTINUOUS_DELIVERY",
+              "Type": "PLAINTEXT",
+              "Value": Object {
+                "Ref": "ContinuousDelivery",
               },
             },
             Object {

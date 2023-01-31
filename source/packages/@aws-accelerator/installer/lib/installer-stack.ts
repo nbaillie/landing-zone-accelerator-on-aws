@@ -112,6 +112,13 @@ export class InstallerStack extends cdk.Stack {
     default: 'Yes',
   });
 
+  private readonly continuousDelivery = new cdk.CfnParameter(this, 'Continuous Delivery', {
+    type: 'String',
+    description: 'Select yes will expect that the configuration is built externally supplied pre-synthesized',
+    allowedValues: ['Yes', 'No'],
+    default: 'No',
+  });
+
   /**
    * Management Account ID Parameter
    * @private
@@ -169,7 +176,11 @@ export class InstallerStack extends cdk.Stack {
       },
       {
         Label: { default: 'Pipeline Configuration' },
-        Parameters: [this.enableApprovalStage.logicalId, this.approvalStageNotifyEmailList.logicalId],
+        Parameters: [
+          this.enableApprovalStage.logicalId,
+          this.approvalStageNotifyEmailList.logicalId,
+          this.continuousDelivery.logicalId,
+        ],
       },
       {
         Label: { default: 'Mandatory Accounts Configuration' },
@@ -192,6 +203,7 @@ export class InstallerStack extends cdk.Stack {
       [this.repositoryBranchName.logicalId]: { default: 'Branch Name' },
       [this.enableApprovalStage.logicalId]: { default: 'Enable Approval Stage' },
       [this.approvalStageNotifyEmailList.logicalId]: { default: 'Manual Approval Stage notification email list' },
+      [this.continuousDelivery.logicalId]: { default: 'Continuous Delivery Only' },
       [this.managementAccountEmail.logicalId]: { default: 'Management Account Email' },
       [this.logArchiveAccountEmail.logicalId]: { default: 'Log Archive Account Email' },
       [this.auditAccountEmail.logicalId]: { default: 'Audit Account Email' },
@@ -580,6 +592,10 @@ export class InstallerStack extends cdk.Stack {
           ACCELERATOR_ENABLE_APPROVAL_STAGE: {
             type: cdk.aws_codebuild.BuildEnvironmentVariableType.PLAINTEXT,
             value: this.enableApprovalStage.valueAsString,
+          },
+          CONTINUOUS_DELIVERY: {
+            type: cdk.aws_codebuild.BuildEnvironmentVariableType.PLAINTEXT,
+            value: this.continuousDelivery.valueAsString,
           },
           APPROVAL_STAGE_NOTIFY_EMAIL_LIST: {
             type: cdk.aws_codebuild.BuildEnvironmentVariableType.PLAINTEXT,
