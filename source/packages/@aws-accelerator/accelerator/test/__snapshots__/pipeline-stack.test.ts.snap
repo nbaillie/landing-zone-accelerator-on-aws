@@ -1930,12 +1930,12 @@ Object {
         \\"env\\",
         \\"cd source\\",
         \\"cd packages/@aws-accelerator/accelerator\\",
-        \\"if [ -z \\\\\\"\${ACCELERATOR_STAGE}\\\\\\" ]; then yarn run ts-node --transpile-only cdk.ts synth --require-approval never --config-dir $CODEBUILD_SRC_DIR_Config --partition ",
+        \\"if [[ -z \\\\\\"\${ACCELERATOR_STAGE}\\\\\\" ] && [ \\\\\\"CONTINUOUS_DELIVERY\\\\\\" == \\\\\\"No\\\\\\" ]]; then yarn run ts-node --transpile-only cdk.ts synth --require-approval never --config-dir $CODEBUILD_SRC_DIR_Config --partition ",
                 Object {
                   "Ref": "AWS::Partition",
                 },
                 "; fi\\",
-        \\"if [ ! -z \\\\\\"\${ACCELERATOR_STAGE}\\\\\\" ]; then yarn run ts-node --transpile-only cdk.ts synth --stage $ACCELERATOR_STAGE --require-approval never --config-dir $CODEBUILD_SRC_DIR_Config --partition ",
+        \\"if [ ! -z \\\\\\"\${ACCELERATOR_STAGE}\\\\\\" && [ \\\\\\"CONTINUOUS_DELIVERY\\\\\\" == \\\\\\"No\\\\\\" ]]; then yarn run ts-node --transpile-only cdk.ts synth --stage $ACCELERATOR_STAGE --require-approval never --config-dir $CODEBUILD_SRC_DIR_Config --partition ",
                 Object {
                   "Ref": "AWS::Partition",
                 },
@@ -1944,7 +1944,7 @@ Object {
                 Object {
                   "Ref": "AWS::Partition",
                 },
-                " --app cdk.out\\"
+                " --app $CODEBUILD_SRC_DIR_Config/cdk.out\\"
       ]
     }
   }
