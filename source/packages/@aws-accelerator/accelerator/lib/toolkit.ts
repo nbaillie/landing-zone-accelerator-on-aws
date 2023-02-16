@@ -183,7 +183,7 @@ export class AcceleratorToolkit {
           process.env['CDK_NEW_BOOTSTRAP'] = '1';
           
           const templatePath = options.configDirPath
-          ? path.join(options.configDirPath,`${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
+          ? path.join(options.configDirPath,`cdk.out/${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
             options.region
           }.template.json`)
           : `./cdk.out/${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
