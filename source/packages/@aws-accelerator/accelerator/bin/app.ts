@@ -214,7 +214,7 @@ async function main() {
       const sourceRepositoryOwner = process.env['ACCELERATOR_REPOSITORY_OWNER'] ?? 'awslabs';
       const sourceRepositoryName = process.env['ACCELERATOR_REPOSITORY_NAME'] ?? 'landing-zone-accelerator-on-aws';
       const sourceBranchName = process.env['ACCELERATOR_REPOSITORY_BRANCH_NAME'];
-      const enableApprovalStage = process.env['ACCELERATOR_ENABLE_APPROVAL_STAGE'] === 'Yes'
+      const enableApprovalStage = process.env['ACCELERATOR_ENABLE_APPROVAL_STAGE']
         ? process.env['ACCELERATOR_ENABLE_APPROVAL_STAGE'] === 'Yes'
         : true;
 
