@@ -181,14 +181,17 @@ export class AcceleratorToolkit {
         // Use custom bootstrapping template if centralizing CDK assets in a single S3 bucket
         if (options.centralizeCdkBootstrap) {
           process.env['CDK_NEW_BOOTSTRAP'] = '1';
-          
+
           const templatePath = options.configDirPath
-          ? path.join(options.configDirPath,`cdk.out/${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
-            options.region
-          }.template.json`)
-          : `./cdk.out/${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
-            options.region
-          }.template.json`;
+            ? path.join(
+                options.configDirPath,
+                `cdk.out/${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
+                  options.region
+                }.template.json`,
+              )
+            : `./cdk.out/${AcceleratorStackNames[AcceleratorStage.BOOTSTRAP]}-${options.accountId}-${
+                options.region
+              }.template.json`;
 
           source = { source: 'custom', templateFile: templatePath };
         } else {
